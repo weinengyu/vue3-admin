@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import router from "@/router";
+
+const username = ref('')
+const password = ref('')
+
+const handleLogin = () => {
+  console.log(111)
+  router.replace('/dashboard')
+  return false
+}
+
 
 </script>
 
@@ -14,13 +26,13 @@
       <p class="title">登录</p>
       <form>
         <label class="user-label">
-          <input type="text" name="username">
+          <input v-model="username" type="text" name="username">
         </label>
         <label class="password-label">
-          <input type="password" name="password">
+          <input v-model="password" type="password" name="password">
         </label>
         <div class="button-box">
-          <button>登录</button>
+          <button type="button" @click="handleLogin()">登录</button>
         </div>
       </form>
     </section>
